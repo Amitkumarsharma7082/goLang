@@ -2,15 +2,24 @@ package main
 
 import "fmt"
 
-// ! Question : Life, the Universe, and Everything
 func main() {
-	for i := range 100 {
-		if i == 42 {
-			break
+	for n := range 6 {
+		if n%2 == 0 {
+			continue
 		}
-		fmt.Println(i)
+		fmt.Println(n)
 	}
 }
+
+// ! Question : Life, the Universe, and Everything
+// func main() {
+// 	for i := range 100 {
+// 		if i == 42 {
+// 			break
+// 		}
+// 		fmt.Println(i)
+// 	}
+// }
 
 // func main() {
 // 	i := 1
