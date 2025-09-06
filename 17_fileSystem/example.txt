@@ -1,0 +1,3 @@
+hello go lang
+reading all file system
+ioutil.ReadFile
