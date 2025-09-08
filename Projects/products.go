@@ -41,7 +41,7 @@ type Rating struct {
 	Count int     `json:"count"`
 }
 
-func products() {
+func main() {
 	fmt.Println("json products")
 	// Make http Get Request
 	Url := "https://fakestoreapi.com/products"
