@@ -1,10 +1,17 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 )
+
+type Todo struct {
+	UserId int    `json:"userId"`
+	Id     int    `json:"id"`
+	Title  string `json:"title"`
+}
 
 func main() {
 	fmt.Println("CRUD......")
@@ -25,6 +32,13 @@ func main() {
 		fmt.Println("Error occurred while reading", err)
 		return
 	}
-	fmt.Println("Data :", string(data))
+	// fmt.Println("Data :", string(data))
 
+	var todo []Todo
+	err = json.Unmarshal(data, &todo)
+	if err != nil {
+		fmt.Println("Error unmarshalling", err)
+		return
+	}
+	fmt.Println("data :", todo)
 }
