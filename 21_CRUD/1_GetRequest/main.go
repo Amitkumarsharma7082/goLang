@@ -8,13 +8,13 @@ import (
 )
 
 type Todo struct {
-	UserId int    `json:"userId"`
-	Id     int    `json:"id"`
-	Title  string `json:"title"`
+	UserId    int    `json:"userId"`
+	Id        int    `json:"id"`
+	Title     string `json:"title"`
+	Completed bool   `json:"completed"`
 }
 
-func main() {
-	fmt.Println("CRUD......")
+func performGetRequest() {
 	res, err := http.Get("https://jsonplaceholder.typicode.com/todos/1")
 	if err != nil {
 		fmt.Println("Error occurred while getting response", err)
@@ -34,11 +34,17 @@ func main() {
 	}
 	// fmt.Println("Data :", string(data))
 
-	var todo []Todo
+	var todo Todo
 	err = json.Unmarshal(data, &todo)
 	if err != nil {
 		fmt.Println("Error unmarshalling", err)
 		return
 	}
 	fmt.Println("data :", todo)
+}
+func main() {
+	fmt.Println("Get Request......")
+	// Call Get Request
+	performGetRequest()
+
 }
