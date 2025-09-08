@@ -44,7 +44,7 @@ func performPostRequest() {
 		return
 	}
 	defer res.Body.Close()
-	data, err := ioutil.ReadAll(res.Body) // []byte, err
+	data, _ := ioutil.ReadAll(res.Body) // []byte, err
 	fmt.Println("Response :", string(data))
 	fmt.Println("Status code :", res.Status)
 }
